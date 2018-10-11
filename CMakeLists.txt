@@ -4,6 +4,11 @@
 cmake_minimum_required(VERSION 3.1)
 project(EASTL)
 
+# build with:
+#    TYPE="Release"; rm -fr $TYPE; mkdir $TYPE; cd $TYPE; cmake -G Ninja -DCMAKE_BUILD_TYPE=$TYPE -DEASTL_BUILD_BENCHMARK=On -DEASTL_BUILD_TESTS=On ..; cmake --build .; cd ..; ls -l "$TYPE/libEASTL.a"
+
+set(CMAKE_CXX_FLAGS    "${CMAKE_CXX_FLAGS} -march=native")	# binary is optimized, but machine dependent
+
 #-------------------------------------------------------------------------------------------
 # Options
 #-------------------------------------------------------------------------------------------
